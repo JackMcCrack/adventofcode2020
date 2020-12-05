@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-import string
-
 def read_input(filename):
     read = []
     lines=open(filename, "r")
@@ -27,9 +25,7 @@ if __name__ == '__main__':
         valid = {'byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid' }
         result = True
         for v in valid:
-            if v in check.keys():
-                i = 0
-            else:
+            if v not in check.keys():
                 result = False
                 print('keys')
         if result:
@@ -55,8 +51,12 @@ if __name__ == '__main__':
                     or int(check['hgt'][0:-2]) > 76):
                 result = False
                 print('keys-in', check['hgt'])
+            if check['hgt'][-2:len(check['hgt'])] != 'cm' and check['hgt'][-2:len(check['hgt'])] != "in":
+                result = False
+                print('keys-hgt', check['hgt'])
 
-            if check['hcl'][0] != '#' or not all(c in string.hexdigits for c in check['hcl'][1:-1]):
+
+            if check['hcl'][0] != '#' or not all(c in '0123456789abcdefABCDEF' for c in check['hcl'][1:-1]):
                 result = False
                 print('keys-hcl'), check['hcl']
             
@@ -73,5 +73,5 @@ if __name__ == '__main__':
 
         if result:
             validcouter += 1
-            print(check)
+            print('OK', check)
     print(validcouter)
