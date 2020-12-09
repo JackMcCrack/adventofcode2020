@@ -9,3 +9,9 @@ do
 	cp $inputfile input
 	python3 task2.py
 done
+
+echo "+++++"
+echo "search for:"
+echo "    print(pos, done[pos], ins[pos])
+IndexError: list index out of range"
+

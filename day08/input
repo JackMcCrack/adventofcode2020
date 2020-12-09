@@ -96,7 +96,7 @@ acc +36
 jmp +118
 acc +48
 jmp +383
-nop +101
+jmp +101
 jmp -94
 jmp +181
 acc +43
