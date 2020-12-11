@@ -81,6 +81,8 @@ if __name__ == '__main__':
         n, c = nextstep(f)
         f = deepcopy(n)
         print('====', 'changes:', c)
+        for i in range(16):
+            print()
         prnt(n)
 
     print(countallocc(f))
