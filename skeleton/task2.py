@@ -6,6 +6,8 @@ def read_input(filename):
     lines=open(filename, "r")
     for i in lines:
         read.append(i.strip())
+        #read.append(int(i.strip()))
+        #read.append("".split(i.strip()))
     return read
 
 if __name__ == '__main__':
