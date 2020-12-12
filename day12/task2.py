@@ -32,13 +32,13 @@ if __name__ == '__main__':
         
         if c == 'L':
             for s in range(int(co[1]/90) % 4 ):
-                print("turn: %s\t%s\t%s\t%s" %(di, co, s, wp))
+                #print("turn: %s\t%s\t%s\t%s" %(di, co, s, wp))
                 wp = [wp[1] * -1, wp[0] * 1]
                 di = direct[(direct.index(di) - 1) % 4]
 
         if c == 'R':
             for s in range(int(co[1]/90) % 4 ):
-                print("turn: %s\t%s\t%s\t%s" %(di, co, s, wp))
+                #print("turn: %s\t%s\t%s\t%s" %(di, co, s, wp))
                 wp = [wp[1] * 1, wp[0] * -1]
                 di = direct[(direct.index(di) + 1) % 4]
 
