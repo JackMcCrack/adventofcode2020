@@ -33,12 +33,21 @@ if __name__ == '__main__':
     run = True
     while run:
         m = 0
+        lts = []
+        for i in o:
+            lts.append(0)
         while m < len(o):
             if (ts+o[m]) % bus[o[m]] == 0:
-                #print(ts, m, o[m], bus[o[m]])
+                if m > (len(o)/3):
+                    print(ts, m, o[m], bus[o[m]])
+                lts[m] = ts
                 m += 1
             else:
                 m = 0
-                ts += 1
-        run = False 
+                if lts[m] > 0:
+                    ts = lts[m] + bus[o[m]]
+                else:
+                    ts += 1
+        run = False
+    m -= 1
     print(ts, m, o[m], bus[o[m]])
