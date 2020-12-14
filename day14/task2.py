@@ -41,7 +41,7 @@ def findalladdr(i, mask=None):
                     tmp = tmp.replace('X', bm[x], 1)
                 #print('t', tmp, bit2int(tmp))
                 r.append(bit2int(tmp))
-            print('r:', r)
+            #print('r:', r)
             b = r
     #print('b:', b)
     return b
@@ -67,6 +67,7 @@ if __name__ == '__main__':
             #print(line[0][4:-1])
             x = line[0][4:-1]
             addr = findalladdr(x, mask)
+            print('value: ', line[1], '\tinto: ', addr)
             for a in addr:
                 # write the value in all addresses we got back from findalladdr
                 mem.update({a: line[1]})
