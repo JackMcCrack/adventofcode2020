@@ -21,9 +21,17 @@ def play(tmpa, tmpb):
     a = deepcopy(tmpa)
     b = deepcopy(tmpb)
     win = None
+    history = []
     while len(a) > 0 and len(b) > 0:
+        if [a, b] in history:
+            # prevent loop - player A wins
+            win = 'a'
+            print(score(a), 'a\t', tmpa, tmpb, a, b, 'by history')
+            return win
+        history.append([a[:], b[:]])
+
         # recursion - start a subgame
-        if len(a) < a[0] and len(b) < b[0]:
+        if len(a) > a[0] and len(b) > b[0]:
             subgamewin = play(a[1:a[0]+1], b[1:b[0]+1])
             if subgamewin == 'a':
                 a.append(a[0])
