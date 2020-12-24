@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from copy import deepcopy
 
 def read_input(filename):
     read = []
@@ -39,6 +40,17 @@ def walk(d='', a=[0,0,0]):
 
     return ret
 
+def countbw(tiles):
+    black = 0
+    white = 0
+    for t,v in tiles.items():
+        #print(t,v%2)
+        if v%2 == 1:
+            black += 1
+        else:
+            white += 1
+    print('b', black, 'w', white)
+
 
 if __name__ == '__main__':
             # x, y, z
@@ -60,12 +72,6 @@ if __name__ == '__main__':
             tiles[a[0], a[1], a[2]] += 1
         else:
             tiles[a[0], a[1], a[2]] = 1
-    black = 0
-    white = 0
-    for t,v in tiles.items():
-        print(t,v%2)
-        if v%2 == 1:
-            black += 1
-        else:
-            white += 1
-    print('b', black, 'w', white)
+
+    countbw(tiles) 
+
